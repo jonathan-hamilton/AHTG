@@ -14,7 +14,7 @@ namespace Domain
         public string City { get; set; }
         public string State { get; set; }
         public int Zip { get; set; }
-        public int Phone { get; set; }
+        public string Phone { get; set; }
         public string Email { get; set; }
         public DateTime EnteredOn { get; set; }
     }
