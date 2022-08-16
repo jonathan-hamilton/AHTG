@@ -4,9 +4,11 @@ import { Hospital } from '../../../app/models/hospital';
 
 interface Props{
     hospitals: Hospital[];
+    selectHospital: (id: string) => void;
+    deleteHospital: (id: string) => void;
 }
 
-export default function HospitalList({hospitals}: Props) {
+export default function HospitalList({hospitals, selectHospital, deleteHospital}: Props) {
   return (
     <Segment>
         <Item.Group divided>
@@ -19,7 +21,8 @@ export default function HospitalList({hospitals}: Props) {
                             <div>{hospital.city}, {hospital.state} {hospital.zip}</div>
                         </Item.Description>
                         <Item.Extra>
-                            <Button floated='right' content='View' color='blue' />                            
+                            <Button onClick={() => selectHospital(hospital.id)} floated='right' content='View' color='blue' />                            
+                            <Button onClick={() => deleteHospital(hospital.id)} floated='right' content='Delete' color='red' />                            
                         </Item.Extra>
                     </Item.Content>
                 </Item>

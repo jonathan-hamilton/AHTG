@@ -4,9 +4,9 @@ export interface Hospital {
     address: string;
     city: string;
     state: string;
-    zip: number;
+    zip: string;
     phone: string;
     email: string;
-    enteredOn: Date;
+    enteredOn: string;
     image: string;
 }

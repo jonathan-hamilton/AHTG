@@ -4,17 +4,16 @@ import { Hospital } from '../../../app/models/hospital';
 
 interface Props{
     hospital: Hospital;
+    cancelSelectHospital: () => void;
+    openForm: (id: string) => void;
 }
 
-export default function HospitalDetails({hospital}: Props) {
+export default function HospitalDetails({hospital, cancelSelectHospital, openForm}: Props) {
   return (
     <Card fluid>
     <Image src={`/assets/hospital_front/${hospital.image}`}/>
     <Card.Content>
       <Card.Header>{hospital.name}</Card.Header>
-      {/* <Card.Meta>
-        <span>Joined in 2015</span>
-      </Card.Meta> */}
       <Card.Description>
         <div>{hospital.address}</div>
         <div>{hospital.city}, {hospital.state} {hospital.zip}</div>
@@ -23,8 +22,8 @@ export default function HospitalDetails({hospital}: Props) {
     </Card.Content>
     <Card.Content extra>
       <Button.Group widths='2'>
-        <Button basic color='blue' content='Edit' />
-        <Button basic color='grey' content='Cancel' />
+        <Button onClick={() => openForm(hospital.id)} basic color='blue' content='Edit' />
+        <Button onClick={cancelSelectHospital} basic color='grey' content='Cancel' />
       </Button.Group>
     </Card.Content>
   </Card>
