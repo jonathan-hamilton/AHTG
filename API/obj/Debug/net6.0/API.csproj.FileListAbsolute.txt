@@ -60,3 +60,5 @@ C:\Projects\AHTG\API\bin\Debug\net6.0\runtimes\win-x86\native\e_sqlite3.dll
 C:\Projects\AHTG\API\bin\Debug\net6.0\MediatR.dll
 C:\Projects\AHTG\API\bin\Debug\net6.0\MediatR.Contracts.dll
 C:\Projects\AHTG\API\bin\Debug\net6.0\MediatR.Extensions.Microsoft.DependencyInjection.dll
+C:\Projects\AHTG\API\bin\Debug\net6.0\AutoMapper.dll
+C:\Projects\AHTG\API\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
