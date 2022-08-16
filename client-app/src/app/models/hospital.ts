@@ -7,6 +7,6 @@ export interface Hospital {
     zip: string;
     phone: string;
     email: string;
-    enteredOn: string;
+    enteredOn: Date;
     image: string;
 }

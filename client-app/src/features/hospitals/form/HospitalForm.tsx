@@ -6,16 +6,17 @@ interface Props{
     hospital: Hospital | undefined;
     closeForm: () => void;
     createOrEdit: (hospital: Hospital) => void;
+    submitting: boolean;
 }
 
-export default function HospitalForm({hospital: selectedHospital, closeForm, createOrEdit}: Props) {
+export default function HospitalForm({hospital: selectedHospital, closeForm, createOrEdit, submitting}: Props) {
 
   const initialState = selectedHospital ?? {
     id: '',
     address: '',
     city: '',
     email: '',
-    enteredOn: '',
+    enteredOn: new Date(),
     name: '',
     phone: '',
     state: '',
@@ -44,7 +45,7 @@ export default function HospitalForm({hospital: selectedHospital, closeForm, cre
             <Form.Input placeholder='Zip' value={hospital.zip} name='zip' onChange={handleInputChange}/>
             <Form.Input placeholder='Phone' value={hospital.phone} name='phone' onChange={handleInputChange}/>
             <Form.Input placeholder='Email' value={hospital.email} name='email' onChange={handleInputChange}/>
-            <Button floated='right' positive type='submit' content='Submit' />
+            <Button loading={submitting} floated='right' positive type='submit' content='Submit' />
             <Button onClick={closeForm} floated='right' type='button' content='Cancel' />
         </Form>
     </Segment>

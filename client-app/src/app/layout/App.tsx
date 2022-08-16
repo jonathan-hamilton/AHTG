@@ -1,20 +1,24 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
 import { Container } from 'semantic-ui-react';
 import { Hospital } from '../models/hospital';
 import NavBar from './NavBar';
 import HospitalDashboard from '../../features/hospitals/dashboard/HospitalDashboard';
 import {v4 as uuid} from 'uuid';
+import agent from '../api/agent';
+import LoadingComponent from './LoadingComponent';
 
 function App() {
 
   const [hospitals, setHospitals] = useState<Hospital[]>([]);
   const [selectedHospital, setSelectedHospital] = useState<Hospital | undefined>(undefined);
   const [editMode, setEditMode] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const [submitting, setSubmitting] = useState(false);
 
   useEffect(() => {
-    axios.get<Hospital[]>('https://localhost:7142/api/Hospitals').then(response => {      
-      setHospitals(response.data);
+    agent.Activities.list().then(response => {      
+      setHospitals(response);
+      setLoading(false);
     })
   }, []);
 
@@ -36,16 +40,36 @@ function App() {
   }
 
   function handleCreateOrEditHospital(hospital: Hospital){
-    hospital.id
-      ? setHospitals([...hospitals.filter(x => x.id !== hospital.id), hospital])
-      : setHospitals([...hospitals, {...hospital, id: uuid()}]);
-    setEditMode(false);
-    setSelectedHospital(hospital);
+    setSubmitting(true);
+    if(hospital.id){
+      agent.Activities.update(hospital).then(() => {
+        setHospitals([...hospitals.filter(x => x.id !== hospital.id), hospital]);
+        setSelectedHospital(hospital);
+        setEditMode(false);
+        setSubmitting(false);
+      });
+    } else {
+      hospital.id = uuid();
+      agent.Activities.create(hospital).then(() => {
+        hospital.enteredOn = new Date();
+        setHospitals([...hospitals, hospital]);
+        setSelectedHospital(hospital);
+        setEditMode(false);
+        setSubmitting(false);
+      });
+    }
   }
 
   function handleDeleteHospital(id: string){
-    setHospitals([...hospitals.filter(x => x.id !== id)]);
+    setSubmitting(true);
+    agent.Activities.delete(id).then(() => {
+      setHospitals([...hospitals.filter(x => x.id !== id)]);
+      setSubmitting(false);
+    });
+    
   }
+
+  if(loading) return <LoadingComponent content='Loading app'/>
 
   return (
     <>
@@ -61,6 +85,7 @@ function App() {
           closeForm={handleFormClose}
           createOrEdit={handleCreateOrEditHospital}
           deleteHospital={handleDeleteHospital}
+          submitting={submitting}
         />
       </Container>
     </>

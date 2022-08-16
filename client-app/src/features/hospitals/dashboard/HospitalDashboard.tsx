@@ -2,7 +2,7 @@ import React from 'react'
 import { Grid } from 'semantic-ui-react'
 import { Hospital } from '../../../app/models/hospital';
 import HospitalDetails from '../details/HospitalDetails';
-import ActivityForm from '../form/HospitalForm';
+import HospitalForm from '../form/HospitalForm';
 import HospitalList from './HospitalList';
 
 interface Props {
@@ -15,16 +15,19 @@ interface Props {
     closeForm: () => void;
     createOrEdit: (hospital: Hospital) => void;
     deleteHospital: (id: string) => void;
+    submitting: boolean;
 }
 
 export default function HospitalDashboard({hospitals, selectedHospital,
-    selectHospital, cancelSelectHospital, editMode, openForm, closeForm, createOrEdit, deleteHospital}: Props) {
+    selectHospital, cancelSelectHospital, editMode, openForm, 
+    closeForm, createOrEdit, deleteHospital, submitting}: Props) {
   return (
     <Grid>
         <Grid.Column width='10'>
             <HospitalList hospitals={hospitals} 
                 selectHospital={selectHospital}
                 deleteHospital={deleteHospital}
+                submitting={submitting}
             />            
         </Grid.Column>
         <Grid.Column width='6'>
@@ -35,7 +38,12 @@ export default function HospitalDashboard({hospitals, selectedHospital,
                 openForm={openForm}
             />}
             {editMode &&
-            <ActivityForm closeForm={closeForm} hospital={selectedHospital} createOrEdit={createOrEdit}/>}
+            <HospitalForm 
+                closeForm={closeForm} 
+                hospital={selectedHospital} 
+                createOrEdit={createOrEdit}
+                submitting={submitting}
+            />}
         </Grid.Column>
     </Grid>
   )
