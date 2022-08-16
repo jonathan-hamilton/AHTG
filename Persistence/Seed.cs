@@ -23,7 +23,8 @@ namespace Persistence
                     Zip = 94596,
                     Phone = "1-888-555-1212",
                     Email = "kp-wc@kp.org",
-                    EnteredOn = DateTime.Now
+                    EnteredOn = DateTime.Now,
+                    Image = "hospital-1.jpg"
                 },
                 new Hospital
                 {
@@ -34,7 +35,8 @@ namespace Persistence
                     Zip = 94596,
                     Phone = "1-888-443-1333",
                     Email = "jm-wc@jm.org",
-                    EnteredOn = DateTime.Now
+                    EnteredOn = DateTime.Now,
+                    Image = "hospital-2.jpg"
                 },
                 new Hospital
                 {
@@ -45,7 +47,8 @@ namespace Persistence
                     Zip = 94518,
                     Phone = "1-888-650-4566",
                     Email = "mtdiablo-concord@md.org",
-                    EnteredOn = DateTime.Now
+                    EnteredOn = DateTime.Now,
+                    Image = "hospital-3.jpg"
                 },
                 new Hospital
                 {
@@ -56,7 +59,8 @@ namespace Persistence
                     Zip = 94423,
                     Phone = "1-888-818-3325",
                     Email = "kp-ok@kp.org",
-                    EnteredOn = DateTime.Now
+                    EnteredOn = DateTime.Now,
+                    Image = "hospital-4.jpg"
                 },
                 new Hospital
                 {
@@ -67,7 +71,8 @@ namespace Persistence
                     Zip = 94596,
                     Phone = "1-888-331-8889",
                     Email = "ab-wc@alta-bates.org",
-                    EnteredOn = DateTime.Now
+                    EnteredOn = DateTime.Now,
+                    Image = "hospital-5.jpg"
                 },
                 new Hospital
                 {
@@ -78,7 +83,8 @@ namespace Persistence
                     Zip = 94543,
                     Phone = "1-888-787-3112",
                     Email = "information@childrens-oakland.org",
-                    EnteredOn = DateTime.Now
+                    EnteredOn = DateTime.Now,
+                    Image = "hospital-6.jpg"
                 }                                                                                
             };
 

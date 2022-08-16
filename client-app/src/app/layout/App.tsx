@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Header, List } from 'semantic-ui-react';
+import { Container, Header, List } from 'semantic-ui-react';
 import { Hospital } from '../models/hospital';
+import NavBar from './NavBar';
+import HospitalDashboard from '../../features/hospitals/dashboard/HospitalDashboard';
 
 function App() {
 
@@ -14,18 +16,12 @@ function App() {
   }, []);
 
   return (
-    <div>
-      <Header as='h2' icon='hospital' content='Hospitals' />
-
-        <List>
-          {hospitals.map(hospital => (
-            <List.Item key={hospital.id}>
-              {hospital.name}
-            </List.Item>
-          ))}
-        </List>
-
-    </div>
+    <>
+      <NavBar />
+      <Container style={{marginTop: '7em'}}>
+        <HospitalDashboard hospitals={hospitals} />
+      </Container>
+    </>
   );
 }
 

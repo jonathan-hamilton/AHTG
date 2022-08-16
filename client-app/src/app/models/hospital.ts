@@ -8,4 +8,5 @@ export interface Hospital {
     phone: string;
     email: string;
     enteredOn: Date;
+    image: string;
 }

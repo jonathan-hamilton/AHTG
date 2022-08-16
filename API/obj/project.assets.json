@@ -1517,11 +1517,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Projects\\AHTG\\API\\API.csproj",
+      "projectUniqueName": "C:\\Projects\\AHTG\\API\\API.csproj",
       "projectName": "API",
-      "projectPath": "c:\\Projects\\AHTG\\API\\API.csproj",
+      "projectPath": "C:\\Projects\\AHTG\\API\\API.csproj",
       "packagesPath": "C:\\Users\\jhamilton\\.nuget\\packages\\",
-      "outputPath": "c:\\Projects\\AHTG\\API\\obj\\",
+      "outputPath": "C:\\Projects\\AHTG\\API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -1535,14 +1535,15 @@
         "net6.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "c:\\Projects\\AHTG\\Application\\Application.csproj": {
-              "projectPath": "c:\\Projects\\AHTG\\Application\\Application.csproj"
+            "C:\\Projects\\AHTG\\Application\\Application.csproj": {
+              "projectPath": "C:\\Projects\\AHTG\\Application\\Application.csproj"
             }
           }
         }

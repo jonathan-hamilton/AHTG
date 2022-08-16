@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Projects\\AHTG\\API\\API.csproj": {}
+    "C:\\Projects\\AHTG\\API\\API.csproj": {}
   },
   "projects": {
-    "c:\\Projects\\AHTG\\API\\API.csproj": {
+    "C:\\Projects\\AHTG\\API\\API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Projects\\AHTG\\API\\API.csproj",
+        "projectUniqueName": "C:\\Projects\\AHTG\\API\\API.csproj",
         "projectName": "API",
-        "projectPath": "c:\\Projects\\AHTG\\API\\API.csproj",
+        "projectPath": "C:\\Projects\\AHTG\\API\\API.csproj",
         "packagesPath": "C:\\Users\\jhamilton\\.nuget\\packages\\",
-        "outputPath": "c:\\Projects\\AHTG\\API\\obj\\",
+        "outputPath": "C:\\Projects\\AHTG\\API\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -25,14 +25,15 @@
           "net6.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "c:\\Projects\\AHTG\\Application\\Application.csproj": {
-                "projectPath": "c:\\Projects\\AHTG\\Application\\Application.csproj"
+              "C:\\Projects\\AHTG\\Application\\Application.csproj": {
+                "projectPath": "C:\\Projects\\AHTG\\Application\\Application.csproj"
               }
             }
           }
@@ -88,14 +89,14 @@
         }
       }
     },
-    "c:\\Projects\\AHTG\\Application\\Application.csproj": {
+    "C:\\Projects\\AHTG\\Application\\Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Projects\\AHTG\\Application\\Application.csproj",
+        "projectUniqueName": "C:\\Projects\\AHTG\\Application\\Application.csproj",
         "projectName": "Application",
-        "projectPath": "c:\\Projects\\AHTG\\Application\\Application.csproj",
+        "projectPath": "C:\\Projects\\AHTG\\Application\\Application.csproj",
         "packagesPath": "C:\\Users\\jhamilton\\.nuget\\packages\\",
-        "outputPath": "c:\\Projects\\AHTG\\Application\\obj\\",
+        "outputPath": "C:\\Projects\\AHTG\\Application\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -119,8 +120,8 @@
               "C:\\Projects\\AHTG\\Domain\\Domain.csproj": {
                 "projectPath": "C:\\Projects\\AHTG\\Domain\\Domain.csproj"
               },
-              "c:\\Projects\\AHTG\\Persistence\\Persistence.csproj": {
-                "projectPath": "c:\\Projects\\AHTG\\Persistence\\Persistence.csproj"
+              "C:\\Projects\\AHTG\\Persistence\\Persistence.csproj": {
+                "projectPath": "C:\\Projects\\AHTG\\Persistence\\Persistence.csproj"
               }
             }
           }
@@ -221,14 +222,14 @@
         }
       }
     },
-    "c:\\Projects\\AHTG\\Persistence\\Persistence.csproj": {
+    "C:\\Projects\\AHTG\\Persistence\\Persistence.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Projects\\AHTG\\Persistence\\Persistence.csproj",
+        "projectUniqueName": "C:\\Projects\\AHTG\\Persistence\\Persistence.csproj",
         "projectName": "Persistence",
-        "projectPath": "c:\\Projects\\AHTG\\Persistence\\Persistence.csproj",
+        "projectPath": "C:\\Projects\\AHTG\\Persistence\\Persistence.csproj",
         "packagesPath": "C:\\Users\\jhamilton\\.nuget\\packages\\",
-        "outputPath": "c:\\Projects\\AHTG\\Persistence\\obj\\",
+        "outputPath": "C:\\Projects\\AHTG\\Persistence\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

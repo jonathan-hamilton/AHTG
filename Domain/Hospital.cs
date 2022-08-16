@@ -17,5 +17,6 @@ namespace Domain
         public string Phone { get; set; }
         public string Email { get; set; }
         public DateTime EnteredOn { get; set; }
+        public string Image { get; set; }
     }
 }

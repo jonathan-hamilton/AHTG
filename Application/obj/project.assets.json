@@ -1242,11 +1242,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Projects\\AHTG\\Application\\Application.csproj",
+      "projectUniqueName": "C:\\Projects\\AHTG\\Application\\Application.csproj",
       "projectName": "Application",
-      "projectPath": "c:\\Projects\\AHTG\\Application\\Application.csproj",
+      "projectPath": "C:\\Projects\\AHTG\\Application\\Application.csproj",
       "packagesPath": "C:\\Users\\jhamilton\\.nuget\\packages\\",
-      "outputPath": "c:\\Projects\\AHTG\\Application\\obj\\",
+      "outputPath": "C:\\Projects\\AHTG\\Application\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -1260,6 +1260,7 @@
         "net6.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -1269,8 +1270,8 @@
             "C:\\Projects\\AHTG\\Domain\\Domain.csproj": {
               "projectPath": "C:\\Projects\\AHTG\\Domain\\Domain.csproj"
             },
-            "c:\\Projects\\AHTG\\Persistence\\Persistence.csproj": {
-              "projectPath": "c:\\Projects\\AHTG\\Persistence\\Persistence.csproj"
+            "C:\\Projects\\AHTG\\Persistence\\Persistence.csproj": {
+              "projectPath": "C:\\Projects\\AHTG\\Persistence\\Persistence.csproj"
             }
           }
         }
