@@ -9,4 +9,6 @@ export interface Hospital {
     email: string;
     enteredOn: Date;
     image: string;
+    specialty: string;
+    description: string;
 }

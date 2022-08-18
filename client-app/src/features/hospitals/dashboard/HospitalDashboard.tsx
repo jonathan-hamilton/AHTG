@@ -17,10 +17,8 @@ export default observer(function HospitalDashboard() {
 
   return (
     <Grid>
-        <Grid.Column width='10'>
+        <Grid.Column width='14'>
             <HospitalList />            
-        </Grid.Column>
-        <Grid.Column width='6'>
         </Grid.Column>
     </Grid>
   )

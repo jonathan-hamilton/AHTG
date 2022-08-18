@@ -23,7 +23,9 @@ export default observer(function HospitalForm() {
     phone: '',
     state: '',
     zip: '',
-    image: ''
+    image: '',
+    specialty: '',
+    description: ''
   });
 
   useEffect(() => {
@@ -59,6 +61,8 @@ export default observer(function HospitalForm() {
             <Form.Input placeholder='Zip' value={hospital.zip} name='zip' onChange={handleInputChange}/>
             <Form.Input placeholder='Phone' value={hospital.phone} name='phone' onChange={handleInputChange}/>
             <Form.Input placeholder='Email' value={hospital.email} name='email' onChange={handleInputChange}/>
+            <Form.Input placeholder='Specialty' value={hospital.specialty} name='specialty' onChange={handleInputChange}/>
+            <Form.Input placeholder='Description' value={hospital.description} name='description' onChange={handleInputChange}/>
             <Button loading={loading} floated='right' positive type='submit' content='Submit' />
             <Button as={Link} to='/hospitals' floated='right' type='button' content='Cancel' />
         </Form>
