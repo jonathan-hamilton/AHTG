@@ -1,14 +1,19 @@
 import { observer } from 'mobx-react-lite';
-import React, { ChangeEvent, useState } from 'react'
+import React, { ChangeEvent, useEffect, useState } from 'react'
+import { Link, useHistory, useParams } from 'react-router-dom';
 import { Button, Form, Segment } from 'semantic-ui-react'
-import { Hospital } from '../../../app/models/hospital';
+import LoadingComponent from '../../../app/layout/LoadingComponent';
 import { useStore } from '../../../app/stores/store';
+import {v4 as uuid} from 'uuid';
 
 export default observer(function HospitalForm() {
+  const history = useHistory();
   const {hospitalStore} = useStore();
-  const {selectedHospital, closeForm, createHospital, updateHospital, loading} = hospitalStore;
+  const {createHospital, updateHospital, 
+    loading, loadHospital, loadingInitial} = hospitalStore;
+  const {id} = useParams<{id: string}>();
 
-  const initialState = selectedHospital ?? {
+  const [hospital, setHospital] = useState({
     id: '',
     address: '',
     city: '',
@@ -19,18 +24,30 @@ export default observer(function HospitalForm() {
     state: '',
     zip: '',
     image: ''
-  }
+  });
 
-  const [hospital, setHospital] = useState(initialState);
+  useEffect(() => {
+    if(id) loadHospital(id).then(hospital => setHospital(hospital!));
+  },[id, loadHospital])
 
   function handleSubmit(){
-    hospital.id ? updateHospital(hospital) : createHospital(hospital);
+    if(hospital.id.length === 0){
+      let newHospital = {
+        ...hospital,
+        id: uuid()
+      };
+      createHospital(newHospital).then(() => history.push(`/hospitals/${newHospital.id}`));
+    } else {
+      updateHospital(hospital).then(() => history.push(`/hospitals/${hospital.id}`));
+    }
   }
 
   function handleInputChange(event: ChangeEvent<HTMLInputElement>){
     const {name, value} = event.target;
     setHospital({...hospital, [name]: value});
   }
+
+  if(loadingInitial) return <LoadingComponent content='Loading...' />
 
   return (
     <Segment clearing>
@@ -43,7 +60,7 @@ export default observer(function HospitalForm() {
             <Form.Input placeholder='Phone' value={hospital.phone} name='phone' onChange={handleInputChange}/>
             <Form.Input placeholder='Email' value={hospital.email} name='email' onChange={handleInputChange}/>
             <Button loading={loading} floated='right' positive type='submit' content='Submit' />
-            <Button onClick={closeForm} floated='right' type='button' content='Cancel' />
+            <Button as={Link} to='/hospitals' floated='right' type='button' content='Cancel' />
         </Form>
     </Segment>
   )

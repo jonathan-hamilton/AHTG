@@ -1,5 +1,6 @@
 import { observer } from 'mobx-react-lite';
 import React, { SyntheticEvent, useState } from 'react'
+import { Link } from 'react-router-dom';
 import { Button, Item, Segment } from 'semantic-ui-react';
 import { Hospital } from '../../../app/models/hospital';
 import { useStore } from '../../../app/stores/store';
@@ -28,7 +29,7 @@ export default observer(function HospitalList() {
                             <div>{hospital.city}, {hospital.state} {hospital.zip}</div>
                         </Item.Description>
                         <Item.Extra>
-                            <Button onClick={() => hospitalStore.selectHospital(hospital.id)} floated='right' content='View' color='blue' />                            
+                            <Button as={Link} to={`/hospitals/${hospital.id}`} floated='right' content='View' color='blue' />                            
                             <Button 
                                 name={hospital.id}
                                 loading={loading && target === hospital.id} 

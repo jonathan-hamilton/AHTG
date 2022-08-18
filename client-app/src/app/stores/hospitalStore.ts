@@ -1,7 +1,6 @@
 import { makeAutoObservable, runInAction } from "mobx";
 import agent from "../api/agent";
 import { Hospital } from "../models/hospital";
-import {v4 as uuid} from 'uuid';
 
 export default class HospitalStore{
     hospitalRegistry = new Map<string, Hospital>();
@@ -15,10 +14,11 @@ export default class HospitalStore{
     }
 
     loadHospitals = async () => {
+        this.loadingInitial = true;
         try{
             const hospitals = await agent.Activities.list();
             hospitals.forEach(hospital => {
-                this.hospitalRegistry.set(hospital.id, hospital);
+                this.setHospital(hospital);
             });
             this.setLoadingInitial(false);
         } catch (error){
@@ -27,30 +27,42 @@ export default class HospitalStore{
         }
     }
 
+    loadHospital = async (id: string) => {
+        let hospital = this.getHospital(id);
+        if(hospital){
+            this.selectedHospital = hospital;
+            return hospital;
+        } else {
+            this.loadingInitial = true;
+            try{
+                hospital = await agent.Activities.details(id);
+                this.setHospital(hospital);
+                runInAction(() => {
+                    this.selectedHospital = hospital;
+                });
+                this.setLoadingInitial(false);
+                return hospital;
+            } catch (error) {
+                console.log(error);
+                this.setLoadingInitial(false);
+            }
+        }
+    }
+
+    private setHospital = (hospital: Hospital) => {
+        this.hospitalRegistry.set(hospital.id, hospital);
+    }
+
+    private getHospital = (id: string) => {
+        return this.hospitalRegistry.get(id);
+    }
+
     setLoadingInitial = (state: boolean) => {
         this.loadingInitial = state;
     }
 
-    selectHospital = (id: string) => {
-        this.selectedHospital = this.hospitalRegistry.get(id);
-    }
-
-    cancelSelectedHospital = () => {
-        this.selectedHospital = undefined;
-    }
-
-    openForm = (id?: string) => {
-        id ? this.selectHospital(id) : this.cancelSelectedHospital();
-        this.editMode = true;
-    }
-
-    closeForm = () => {
-        this.editMode = false;
-    }
-
     createHospital = async(hospital: Hospital) => {
         this.loading = true;
-        hospital.id = uuid();
         try{
             await agent.Activities.create(hospital);
             runInAction(() => {
@@ -91,7 +103,6 @@ export default class HospitalStore{
             await agent.Activities.delete(id);
             runInAction(() => {
                 this.hospitalRegistry.delete(id);
-                if(this.selectedHospital?.id === id) this.cancelSelectedHospital();
                 this.loading = false;
             });
         } catch (error){

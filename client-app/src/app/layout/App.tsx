@@ -1,26 +1,32 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import {  Container } from 'semantic-ui-react';
 import NavBar from './NavBar';
 import HospitalDashboard from '../../features/hospitals/dashboard/HospitalDashboard';
-import LoadingComponent from './LoadingComponent';
-import { useStore } from '../stores/store';
 import { observer } from 'mobx-react-lite';
+import HomePage from '../../features/home/HomePage';
+import { Route, useLocation } from 'react-router-dom';
+import HospitalForm from '../../features/hospitals/form/HospitalForm';
+import HospitalDetails from '../../features/hospitals/details/HospitalDetails';
 
 function App() {
-  const {hospitalStore} = useStore();
-
-  useEffect(() => {
-    hospitalStore.loadHospitals();
-  }, [hospitalStore]);
-
-  if(hospitalStore.loadingInitial) return <LoadingComponent content='Loading app'/>
+  const location = useLocation();
 
   return (
     <>
-      <NavBar />
-      <Container style={{marginTop: '7em'}}>  
-        <HospitalDashboard />
-      </Container>
+      <Route exact path='/' component={HomePage} />
+      <Route 
+        path={'/(.+)'}
+        render={() => (
+          <>
+            <NavBar />
+            <Container style={{marginTop: '7em'}}>                
+              <Route exact path='/hospitals' component={HospitalDashboard} />
+              <Route path='/hospitals/:id' component={HospitalDetails} />
+              <Route key={location.key} path={['/createHospital','/manage/:id']} component={HospitalForm} />
+            </Container>
+          </>
+        )}
+      />
     </>
   );
 }
