@@ -1,15 +1,12 @@
+import { observer } from 'mobx-react-lite';
 import React, { ChangeEvent, useState } from 'react'
 import { Button, Form, Segment } from 'semantic-ui-react'
 import { Hospital } from '../../../app/models/hospital';
+import { useStore } from '../../../app/stores/store';
 
-interface Props{
-    hospital: Hospital | undefined;
-    closeForm: () => void;
-    createOrEdit: (hospital: Hospital) => void;
-    submitting: boolean;
-}
-
-export default function HospitalForm({hospital: selectedHospital, closeForm, createOrEdit, submitting}: Props) {
+export default observer(function HospitalForm() {
+  const {hospitalStore} = useStore();
+  const {selectedHospital, closeForm, createHospital, updateHospital, loading} = hospitalStore;
 
   const initialState = selectedHospital ?? {
     id: '',
@@ -27,7 +24,7 @@ export default function HospitalForm({hospital: selectedHospital, closeForm, cre
   const [hospital, setHospital] = useState(initialState);
 
   function handleSubmit(){
-    createOrEdit(hospital);
+    hospital.id ? updateHospital(hospital) : createHospital(hospital);
   }
 
   function handleInputChange(event: ChangeEvent<HTMLInputElement>){
@@ -45,9 +42,9 @@ export default function HospitalForm({hospital: selectedHospital, closeForm, cre
             <Form.Input placeholder='Zip' value={hospital.zip} name='zip' onChange={handleInputChange}/>
             <Form.Input placeholder='Phone' value={hospital.phone} name='phone' onChange={handleInputChange}/>
             <Form.Input placeholder='Email' value={hospital.email} name='email' onChange={handleInputChange}/>
-            <Button loading={submitting} floated='right' positive type='submit' content='Submit' />
+            <Button loading={loading} floated='right' positive type='submit' content='Submit' />
             <Button onClick={closeForm} floated='right' type='button' content='Cancel' />
         </Form>
     </Segment>
   )
-}
+})

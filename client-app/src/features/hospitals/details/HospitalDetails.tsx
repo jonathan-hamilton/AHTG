@@ -1,14 +1,14 @@
 import React from 'react'
-import { Button, Card, Icon, Image } from 'semantic-ui-react'
-import { Hospital } from '../../../app/models/hospital';
+import { Button, Card, Image } from 'semantic-ui-react'
+import LoadingComponent from '../../../app/layout/LoadingComponent';
+import { useStore } from '../../../app/stores/store';
 
-interface Props{
-    hospital: Hospital;
-    cancelSelectHospital: () => void;
-    openForm: (id: string) => void;
-}
+export default function HospitalDetails() {
+  const {hospitalStore} = useStore();
+  const {selectedHospital: hospital, openForm, cancelSelectedHospital} = hospitalStore;
 
-export default function HospitalDetails({hospital, cancelSelectHospital, openForm}: Props) {
+  if(!hospital) return <LoadingComponent />;
+
   return (
     <Card fluid>
     <Image src={`/assets/hospital_front/${hospital.image}`}/>
@@ -23,7 +23,7 @@ export default function HospitalDetails({hospital, cancelSelectHospital, openFor
     <Card.Content extra>
       <Button.Group widths='2'>
         <Button onClick={() => openForm(hospital.id)} basic color='blue' content='Edit' />
-        <Button onClick={cancelSelectHospital} basic color='grey' content='Cancel' />
+        <Button onClick={() => cancelSelectedHospital()} basic color='grey' content='Cancel' />
       </Button.Group>
     </Card.Content>
   </Card>

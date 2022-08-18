@@ -1,15 +1,14 @@
+import { observer } from 'mobx-react-lite';
 import React, { SyntheticEvent, useState } from 'react'
 import { Button, Item, Segment } from 'semantic-ui-react';
 import { Hospital } from '../../../app/models/hospital';
+import { useStore } from '../../../app/stores/store';
 
-interface Props{
-    hospitals: Hospital[];
-    selectHospital: (id: string) => void;
-    deleteHospital: (id: string) => void;
-    submitting: boolean;
-}
+export default observer(function HospitalList() {
+  const {hospitalStore} = useStore();
+  const {deleteHospital, hospitalRegistry, loading} = hospitalStore;
+  const hospitals = Array.from(hospitalRegistry.values());
 
-export default function HospitalList({hospitals, selectHospital, deleteHospital, submitting}: Props) {
   const[target, setTarget] = useState('');
 
   function handleActivityDelete(e: SyntheticEvent<HTMLButtonElement>, id: string){
@@ -29,10 +28,10 @@ export default function HospitalList({hospitals, selectHospital, deleteHospital,
                             <div>{hospital.city}, {hospital.state} {hospital.zip}</div>
                         </Item.Description>
                         <Item.Extra>
-                            <Button onClick={() => selectHospital(hospital.id)} floated='right' content='View' color='blue' />                            
+                            <Button onClick={() => hospitalStore.selectHospital(hospital.id)} floated='right' content='View' color='blue' />                            
                             <Button 
                                 name={hospital.id}
-                                loading={submitting && target === hospital.id} 
+                                loading={loading && target === hospital.id} 
                                 onClick={(e) => handleActivityDelete(e, hospital.id)} 
                                 floated='right' 
                                 content='Delete' 
@@ -44,4 +43,4 @@ export default function HospitalList({hospitals, selectHospital, deleteHospital,
         </Item.Group>
     </Segment>
   )
-}
+})

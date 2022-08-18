@@ -1,50 +1,27 @@
+import { observer } from 'mobx-react-lite';
 import React from 'react'
 import { Grid } from 'semantic-ui-react'
-import { Hospital } from '../../../app/models/hospital';
+import { useStore } from '../../../app/stores/store';
 import HospitalDetails from '../details/HospitalDetails';
 import HospitalForm from '../form/HospitalForm';
 import HospitalList from './HospitalList';
 
-interface Props {
-    hospitals: Hospital[];
-    selectedHospital: Hospital | undefined;
-    selectHospital: (id: string) => void;
-    cancelSelectHospital: () => void;
-    editMode: boolean;
-    openForm: (id: string) => void;
-    closeForm: () => void;
-    createOrEdit: (hospital: Hospital) => void;
-    deleteHospital: (id: string) => void;
-    submitting: boolean;
-}
+export default observer(function HospitalDashboard() {
 
-export default function HospitalDashboard({hospitals, selectedHospital,
-    selectHospital, cancelSelectHospital, editMode, openForm, 
-    closeForm, createOrEdit, deleteHospital, submitting}: Props) {
+  const {hospitalStore} = useStore();
+  const {selectedHospital, editMode} = hospitalStore;
+
   return (
     <Grid>
         <Grid.Column width='10'>
-            <HospitalList hospitals={hospitals} 
-                selectHospital={selectHospital}
-                deleteHospital={deleteHospital}
-                submitting={submitting}
-            />            
+            <HospitalList />            
         </Grid.Column>
         <Grid.Column width='6'>
             {selectedHospital && !editMode &&
-            <HospitalDetails 
-                hospital={selectedHospital} 
-                cancelSelectHospital={cancelSelectHospital} 
-                openForm={openForm}
-            />}
+            <HospitalDetails />}
             {editMode &&
-            <HospitalForm 
-                closeForm={closeForm} 
-                hospital={selectedHospital} 
-                createOrEdit={createOrEdit}
-                submitting={submitting}
-            />}
+            <HospitalForm />}
         </Grid.Column>
     </Grid>
   )
-}
+})
