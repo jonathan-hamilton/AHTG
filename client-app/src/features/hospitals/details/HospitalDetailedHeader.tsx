@@ -1,7 +1,7 @@
 import { observer } from 'mobx-react-lite';
 import React from 'react'
 import { Link } from 'react-router-dom';
-import {Button, Header, Item, Segment, Image} from 'semantic-ui-react'
+import {Button, Header, Item, Segment, Image, Grid, Icon} from 'semantic-ui-react'
 import { Hospital } from '../../../app/models/hospital';
 
 const activityImageTextStyle = {
@@ -39,13 +39,43 @@ export default observer (function HospitalDetailedHeader({hospital}: Props) {
             <Segment clearing attached='bottom' >
                 <Item.Group>
                     <Item.Content>
-                        <h3>Contact:</h3>
-                        <p>{hospital.phone}</p>
-                        <p>{hospital.email}</p>
+                        {/* <h3>Contact:</h3>
+                        <h3>{hospital.phone}</h3>
+                        <h3>{hospital.email}</h3> */}
+                        <Grid>
+                            <Grid.Column width={4} >
+                                <Icon size='large' color='teal' name='phone'/>
+                                <h3>{hospital.phone}</h3>
+                            </Grid.Column>
+                            <Grid.Column width={4} >
+                            <Icon size='large' color='teal' name='mail'/>
+                                <h3>{hospital.email}</h3>
+                            </Grid.Column>
+                            <Grid.Column width={4}>
+                            </Grid.Column>
+                            <Grid.Column width={4}>
+                                <Button 
+                                    floated='right' 
+                                    as={Link} 
+                                    to={`/manage/${hospital.id}`} 
+                                    color='blue' 
+                                    content='Edit' 
+                                    size="large"
+                                />
+                                <Button 
+                                    floated='right' 
+                                    as={Link} 
+                                    to='/hospitals' 
+                                    color='grey' 
+                                    content='Cancel' 
+                                    size="large"
+                                />   
+                            </Grid.Column>                             
+                        </Grid>
                     </Item.Content>
                     <Item.Content>
-                        <Button floated='right' as={Link} to={`/manage/${hospital.id}`} color='blue' content='Edit' />
-                        <Button floated='right' as={Link} to='/hospitals' color='grey' content='Cancel' />
+                        {/* <Button floated='right' as={Link} to={`/manage/${hospital.id}`} color='blue' content='Edit' />
+                        <Button floated='right' as={Link} to='/hospitals' color='grey' content='Cancel' /> */}
                     </Item.Content>
                 </Item.Group>
             </Segment>
