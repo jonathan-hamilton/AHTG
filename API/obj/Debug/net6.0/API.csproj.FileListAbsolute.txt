@@ -65,3 +65,12 @@ C:\Projects\AHTG\API\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.Dependency
 C:\Projects\AHTG\API\bin\Debug\net6.0\FluentValidation.dll
 C:\Projects\AHTG\API\bin\Debug\net6.0\FluentValidation.AspNetCore.dll
 C:\Projects\AHTG\API\bin\Debug\net6.0\FluentValidation.DependencyInjectionExtensions.dll
+C:\Projects\AHTG\API\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Projects\AHTG\API\bin\Debug\net6.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Projects\AHTG\API\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Projects\AHTG\API\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
+C:\Projects\AHTG\API\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
+C:\Projects\AHTG\API\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Projects\AHTG\API\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Projects\AHTG\API\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
+C:\Projects\AHTG\API\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll

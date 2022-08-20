@@ -39,9 +39,6 @@ export default observer (function HospitalDetailedHeader({hospital}: Props) {
             <Segment clearing attached='bottom' >
                 <Item.Group>
                     <Item.Content>
-                        {/* <h3>Contact:</h3>
-                        <h3>{hospital.phone}</h3>
-                        <h3>{hospital.email}</h3> */}
                         <Grid>
                             <Grid.Column width={4} >
                                 <Icon size='large' color='teal' name='phone'/>
@@ -72,10 +69,6 @@ export default observer (function HospitalDetailedHeader({hospital}: Props) {
                                 />   
                             </Grid.Column>                             
                         </Grid>
-                    </Item.Content>
-                    <Item.Content>
-                        {/* <Button floated='right' as={Link} to={`/manage/${hospital.id}`} color='blue' content='Edit' />
-                        <Button floated='right' as={Link} to='/hospitals' color='grey' content='Cancel' /> */}
                     </Item.Content>
                 </Item.Group>
             </Segment>

@@ -17,13 +17,13 @@ namespace Application.Hospitals
             public Hospital Hospital { get; set; }
         }
 
-        public class CommandValidator : AbstractValidator<Command>
-        {
-            public CommandValidator()
-            {
-                RuleFor(x => x.Hospital).SetValidator(new HospitalValidator());
-            }
-        }
+        // public class CommandValidator : AbstractValidator<Command>
+        // {
+        //     public CommandValidator()
+        //     {
+        //         RuleFor(x => x.Hospital).SetValidator(new HospitalValidator());
+        //     }
+        // }
 
         public class Handler : IRequestHandler<Command, Result<Unit>>
         {
