@@ -11,6 +11,7 @@ export default function NavBar() {
                 <img src="/assets/hospital-logo.png" alt="logo" style={{marginRight: '10px'}}/>
             </Menu.Item>
             <Menu.Item as={NavLink} to="/hospitals" name='Hospitals' />
+            <Menu.Item as={NavLink} to="/errors" name='Errors' />
             <Menu.Item>
                 <Button as={NavLink} to="/createHospital" positive content='Add Hospital' />
             </Menu.Item>

@@ -62,3 +62,6 @@ C:\Projects\AHTG\API\bin\Debug\net6.0\MediatR.Contracts.dll
 C:\Projects\AHTG\API\bin\Debug\net6.0\MediatR.Extensions.Microsoft.DependencyInjection.dll
 C:\Projects\AHTG\API\bin\Debug\net6.0\AutoMapper.dll
 C:\Projects\AHTG\API\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Projects\AHTG\API\bin\Debug\net6.0\FluentValidation.dll
+C:\Projects\AHTG\API\bin\Debug\net6.0\FluentValidation.AspNetCore.dll
+C:\Projects\AHTG\API\bin\Debug\net6.0\FluentValidation.DependencyInjectionExtensions.dll
