@@ -1,16 +1,7 @@
-// import React from 'react'
-
-// export default function HospitalDetailedInfo() {
-//   return (
-//     <h1>Hospital Detailed Info</h1>
-//   )
-// }
-
 import { observer } from 'mobx-react-lite';
 import React from 'react'
 import {Segment, Grid, Icon} from 'semantic-ui-react'
 import { Hospital } from '../../../app/models/hospital';
-
 
 interface Props {
     hospital: Hospital;

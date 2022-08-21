@@ -18,33 +18,7 @@ export default function HospitalListItem({hospital}: Props) {
       setTarget(e.currentTarget.name);
       deleteHospital(id);
     }    
-    // return (
-    //     <Segment.Group>
-    //         <Segment>
-    //             <Item.Group key={hospital.id}>
-    //                 <Item>
-    //                     <Item.Image size='tiny' src='' />
-    //                     <Item.Content>
-    //                         <Item.Header as={Link} to={`/hospitals/${hospital.id}`}>
-    //                             <div>{hospital.name}</div>
-    //                         </Item.Header>
-    //                         <Item.Description>
-    //                             <div>{hospital.address}</div>
-    //                             <div>{hospital.city}, {hospital.state}</div>                                
-    //                         </Item.Description>
-    //                         <Item.Description><div>Specialty: {hospital.specialty}</div></Item.Description>
-    //                     </Item.Content>
-    //                     <Item.Content>
-    //                         <Item.Extra>
-    //                                 <div>{hospital.phone} - {hospital.email}</div>
-    //                         </Item.Extra>
-                            
-    //                     </Item.Content>
-    //                 </Item>
-    //             </Item.Group>
-    //         </Segment>
-    //     </Segment.Group>
-    // )
+    
   return (
     <Segment.Group>
         <Segment clearing>

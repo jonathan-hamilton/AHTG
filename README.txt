@@ -1,4 +1,4 @@
-AHTG Demo:
+AHTG Demo requirements:
 
   -Ability to view a list of Hospital
 
@@ -37,5 +37,7 @@ Once cloned, to start the API go into the API folder and execute the following c
 To start the client code, enter the folder called 'client-app' and run the following command in a command line:
 
   npm start
+
+  (I had to run 'npm install react-scripts --save' before 'npm start')
 
 The project will launch on localhost:3000 in your browser.

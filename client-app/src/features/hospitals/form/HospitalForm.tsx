@@ -77,7 +77,6 @@ export default observer(function HospitalForm() {
         {({handleSubmit, isValid, isSubmitting, dirty}) => (
           <Form className='ui form' onSubmit={handleSubmit} autoComplete='off'>
             <MyTextInput name='name' placeholder='Name' />
-
             <MyTextInput placeholder='Address' name='address'/>
             <MyTextInput placeholder='City' name='city'/>
             <MyTextInput placeholder='State' name='state'/>

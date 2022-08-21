@@ -45,36 +45,6 @@ namespace API.Controllers
             return Unauthorized();
        }
 
-       [HttpPost("register")]
-       public async Task<ActionResult<UserDto>> Register(RegisterDto registerDto)
-       {
-            if(await _userManager.Users.AnyAsync(x => x.Email == registerDto.Email))
-            {
-                return BadRequest("Email taken");
-            }
-            if(await _userManager.Users.AnyAsync(x => x.UserName == registerDto.Username))
-            {
-                return BadRequest("Username taken");
-            }            
-
-            var user = new AppUser
-            {
-                Name = registerDto.DisplayName,
-                Email = registerDto.Email,
-                UserName = registerDto.Username,
-                Bio = "test bio"
-            };
-
-            var result = await _userManager.CreateAsync(user, registerDto.Password);
-
-            if(result.Succeeded)
-            {
-                CreateUserObject(user);
-            }
-
-            return BadRequest("Problem registering user");
-       }
-
        [HttpGet]
        public async Task<ActionResult<UserDto>> GetCurrentUser()
        {

@@ -13,7 +13,6 @@ using Persistence;
 
 namespace API.Controllers
 {
-    // [AllowAnonymous]
     public class HospitalsController : BaseApiController
     {
         [HttpGet]
