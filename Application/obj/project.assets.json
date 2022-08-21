@@ -1514,8 +1514,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "c:\\Projects\\AHTG\\Domain\\Domain.csproj": {
-              "projectPath": "c:\\Projects\\AHTG\\Domain\\Domain.csproj"
+            "C:\\Projects\\AHTG\\Domain\\Domain.csproj": {
+              "projectPath": "C:\\Projects\\AHTG\\Domain\\Domain.csproj"
             },
             "C:\\Projects\\AHTG\\Persistence\\Persistence.csproj": {
               "projectPath": "C:\\Projects\\AHTG\\Persistence\\Persistence.csproj"

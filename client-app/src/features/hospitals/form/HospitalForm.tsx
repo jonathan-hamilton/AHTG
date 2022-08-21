@@ -55,6 +55,7 @@ export default observer(function HospitalForm() {
     if(hospital.id.length === 0){
       let newHospital = {
         ...hospital,
+        image: 'hospital-default.jpg',
         id: uuid()
       };
       createHospital(newHospital).then(() => history.push(`/hospitals/${newHospital.id}`));

@@ -21,7 +21,8 @@ export default observer (function HospitalDetailedHeader({hospital}: Props) {
     return (
         <Segment.Group>
             <Segment basic attached='top' style={{padding: '0'}}>
-                <Image src={`/assets/hospital_front/${hospital.image}`} fluid />
+                <Image src={`/assets/hospital_front/${hospital.image}`} 
+                    fluid />
                 <Segment style={activityImageTextStyle} basic>
                     <Item.Group>
                         <Item>

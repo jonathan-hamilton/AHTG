@@ -13,11 +13,11 @@ export default observer(function HospitalDashboard() {
     if(hospitalRegistry.size <= 1) loadHospitals();
   }, [hospitalRegistry.size, loadHospitals]);
 
-  if(hospitalStore.loadingInitial) return <LoadingComponent content='Loading app'/>
+  if(hospitalStore.loadingInitial) return <LoadingComponent content='Loading hospitals...'/>
 
   return (
     <Grid>
-        <Grid.Column width='14'>
+        <Grid.Column width='16' style={{marginLeft:'100px', marginRight:'100px'}}>
             <HospitalList />            
         </Grid.Column>
     </Grid>
