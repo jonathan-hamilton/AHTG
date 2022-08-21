@@ -8,6 +8,7 @@ AHTG Demo requirements:
 
   -Ability to remove a Hospital
   
+----------------------------------------------------------------------------------------
 
 Design and Additional Features:
 
@@ -27,6 +28,7 @@ Design and Additional Features:
 
   -Identity/Authentication: ASP .NetCore Identity.
 
+----------------------------------------------------------------------------------------
 
 To Run:
 
