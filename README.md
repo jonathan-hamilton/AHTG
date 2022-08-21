@@ -1,4 +1,4 @@
-AHTG Demo:
+AHTG Demo requirements:
 
   -Ability to view a list of Hospital
 
@@ -7,19 +7,25 @@ AHTG Demo:
   -Ability to edit a Hospital
 
   -Ability to remove a Hospital
+  
 
+Design and Additional Features:
 
-Design:
+  Backend/API Project implemented with a CQRS design pattern, .NetCore, and SQLite DB.
 
-  Backend/API Project uses a CQRS design pattern, .NetCore, and SQLite DB.
+  Frontend/Client Project implemented with React & Typescript.
 
-  Frontend/Client Project uses React/Typescript.
+  Styling Framework: Semantic-UI-React.
 
-  Styling for this project was done with Semantic-UI-React.
+  State Management: Mobx.
 
-  Mobx was used for State Management.
+  Routing: React-Router-Dom.
 
-  React-Router-Dom for Routing.
+  HttpClient: Axios.
+
+  Form/Client Side validation: Formik.
+
+  Identity/Authentication: ASP .NetCore Identity.
 
 
 To Run:
@@ -31,5 +37,7 @@ Once cloned, to start the API go into the API folder and execute the following c
 To start the client code, enter the folder called 'client-app' and run the following command in a command line:
 
   npm start
+
+  (I had to run 'npm install react-scripts --save' before 'npm start')
 
 The project will launch on localhost:3000 in your browser.
