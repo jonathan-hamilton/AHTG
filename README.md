@@ -11,21 +11,21 @@ AHTG Demo requirements:
 
 Design and Additional Features:
 
-  Backend/API Project implemented with a CQRS design pattern, .NetCore, and SQLite DB.
+  -Backend/API Project implemented with a CQRS design pattern, .NetCore, and SQLite DB.
 
-  Frontend/Client Project implemented with React & Typescript.
+  -Frontend/Client Project implemented with React & Typescript.
 
-  Styling Framework: Semantic-UI-React.
+  -Styling Framework: Semantic-UI-React.
 
-  State Management: Mobx.
+  -State Management: Mobx.
 
-  Routing: React-Router-Dom.
+  -Routing: React-Router-Dom.
 
-  HttpClient: Axios.
+  -HttpClient: Axios.
 
-  Form/Client Side validation: Formik.
+  -Form/Client Side validation: Formik.
 
-  Identity/Authentication: ASP .NetCore Identity.
+  -Identity/Authentication: ASP .NetCore Identity.
 
 
 To Run:
